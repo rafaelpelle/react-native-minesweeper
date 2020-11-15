@@ -3,7 +3,7 @@ import { Dimensions } from 'react-native'
 export const params = {
   blockSize: 40,
   borderSize: 5,
-  fontSize: 15,
+  fontSize: 20,
   headerRatio: 0.15,
   difficultLevel: 0.1,
   getColumnsAmount() {
@@ -20,5 +20,10 @@ export const params = {
 export const colors = {
   lightGrey: '#CCC',
   grey: '#999',
-  darkGrey: '#333',
+  darkGrey: '#777',
+  darkerGrey: '#333',
+  blue: '#0000FF',
+  green: '#00FF00',
+  red: '#FF0000',
+  black: '#000000',
 }

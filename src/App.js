@@ -6,11 +6,12 @@ import Field from './components/Field'
 const App = () => {
   return (
     <View style={styles.container}>
-      <Text>
-        Tamanho da grade: {params.getRowsAmount()} x {params.getColumnsAmount()}
-      </Text>
-
-      <Field />
+      <Field opened nearMines={8} />
+      <Field mined />
+      <Field opened mined />
+      <Field opened mined exploded />
+      <Field flagged />
+      <Field opened flagged />
     </View>
   )
 }
@@ -19,6 +20,7 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -1,13 +1,38 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 import { params, colors } from '../../constants'
+import Mine from '../Mine'
+import Flag from '../Flag'
 
-export default function Field(props) {
+const openedLabelColor = {
+  0: null,
+  1: colors.blue,
+  2: colors.green,
+  3: colors.red,
+  4: colors.red,
+  5: colors.red,
+  6: colors.black,
+  7: colors.black,
+  8: colors.black,
+}
+
+export default function Field({ mined, opened, exploded, flagged, nearMines }) {
   const styleField = [styles.field]
   // TODO - other styles
-  if (styleField.length === 1) styleField.push(styles.regular)
+  if (opened) styleField.push(styles.opened)
+  if (exploded) styleField.push(styles.exploded)
+  if (flagged) styleField.push(styles.flagged)
+  if (!opened && !exploded) styleField.push(styles.regular)
 
-  return <View style={styleField}></View>
+  return (
+    <View style={styleField}>
+      {mined && opened && <Mine />}
+      {flagged && !opened && <Flag />}
+      {!mined && opened && nearMines > 0 && (
+        <Text style={[styles.label, { color: openedLabelColor[nearMines] }]}>{nearMines}</Text>
+      )}
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -16,11 +41,25 @@ const styles = StyleSheet.create({
     width: params.blockSize,
     borderWidth: params.borderSize,
   },
+  label: {
+    fontSize: params.fontSize,
+    fontWeight: 'bold',
+  },
   regular: {
     backgroundColor: colors.grey,
     borderLeftColor: colors.lightGrey,
     borderTopColor: colors.lightGrey,
-    borderRightColor: colors.darkGrey,
-    borderBottomColor: colors.darkGrey,
+    borderRightColor: colors.darkerGrey,
+    borderBottomColor: colors.darkerGrey,
+  },
+  opened: {
+    backgroundColor: colors.grey,
+    borderColor: colors.darkGrey,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  exploded: {
+    backgroundColor: colors.red,
+    borderColor: colors.red,
   },
 })
