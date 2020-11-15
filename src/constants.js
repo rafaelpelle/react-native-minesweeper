@@ -1,7 +1,7 @@
 import { Dimensions } from 'react-native'
 
 export const params = {
-  blockSize: 30,
+  blockSize: 40,
   borderSize: 5,
   fontSize: 15,
   headerRatio: 0.15,
@@ -15,4 +15,10 @@ export const params = {
     const boardHeight = height * (1 - this.headerRatio)
     return Math.floor(boardHeight / this.blockSize)
   },
+}
+
+export const colors = {
+  lightGrey: '#CCC',
+  grey: '#999',
+  darkGrey: '#333',
 }

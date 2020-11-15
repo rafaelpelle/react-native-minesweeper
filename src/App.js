@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import { params } from './constants'
+import Field from './components/Field'
 
 const App = () => {
   return (
@@ -8,6 +9,8 @@ const App = () => {
       <Text>
         Tamanho da grade: {params.getRowsAmount()} x {params.getColumnsAmount()}
       </Text>
+
+      <Field />
     </View>
   )
 }
