@@ -1,37 +1,51 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
 import { params, colors } from '../../constants'
 import Mine from '../Mine'
 import Flag from '../Flag'
 
-const openedLabelColor = {
-  0: null,
-  1: colors.blue,
-  2: colors.green,
-  3: colors.red,
-  4: colors.red,
-  5: colors.red,
-  6: colors.black,
-  7: colors.black,
-  8: colors.black,
-}
+const openedLabelColor = [
+  null,
+  colors.blue,
+  colors.green,
+  colors.red,
+  colors.red,
+  colors.red,
+  colors.black,
+  colors.black,
+  colors.black,
+]
 
-export default function Field({ mined, opened, exploded, flagged, nearMines }) {
+export default function Field({
+  row,
+  column,
+  mined,
+  opened,
+  exploded,
+  flagged,
+  nearMines,
+  handleFieldPress,
+  handleFieldLongPress,
+}) {
   const styleField = [styles.field]
-  // TODO - other styles
   if (opened) styleField.push(styles.opened)
   if (exploded) styleField.push(styles.exploded)
   if (flagged) styleField.push(styles.flagged)
   if (!opened && !exploded) styleField.push(styles.regular)
 
   return (
-    <View style={styleField}>
-      {mined && opened && <Mine />}
-      {flagged && !opened && <Flag />}
-      {!mined && opened && nearMines > 0 && (
-        <Text style={[styles.label, { color: openedLabelColor[nearMines] }]}>{nearMines}</Text>
-      )}
-    </View>
+    <TouchableWithoutFeedback
+      onPress={() => handleFieldPress(row, column)}
+      onLongPress={() => handleFieldLongPress(row, column)}
+    >
+      <View style={styleField}>
+        {mined && opened && <Mine />}
+        {flagged && !opened && <Flag />}
+        {!mined && opened && nearMines > 0 && (
+          <Text style={[styles.label, { color: openedLabelColor[nearMines] }]}>{nearMines}</Text>
+        )}
+      </View>
+    </TouchableWithoutFeedback>
   )
 }
 

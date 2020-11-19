@@ -1,17 +1,16 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
-import { params } from './constants'
-import Field from './components/Field'
+import { StyleSheet, View } from 'react-native'
+import useMinesweeper from './hooks/useMinesweeper'
+import Header from './components/Header'
+import Board from './components/Board'
 
 const App = () => {
+  const useMinesweeperHook = useMinesweeper()
+
   return (
     <View style={styles.container}>
-      <Field opened nearMines={8} />
-      <Field mined />
-      <Field opened mined />
-      <Field opened mined exploded />
-      <Field flagged />
-      <Field opened flagged />
+      <Header {...useMinesweeperHook} />
+      <Board {...useMinesweeperHook} />
     </View>
   )
 }
@@ -20,9 +19,6 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 })
 

@@ -18,12 +18,13 @@ export const params = {
 }
 
 export const colors = {
+  lighterGrey: '#EEE',
   lightGrey: '#CCC',
   grey: '#999',
   darkGrey: '#777',
   darkerGrey: '#333',
   blue: '#0000FF',
-  green: '#00FF00',
+  green: '#007700',
   red: '#FF0000',
   black: '#000000',
 }

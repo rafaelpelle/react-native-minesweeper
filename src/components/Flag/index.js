@@ -2,18 +2,18 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { colors } from '../../constants'
 
-export default function Flag({ bigger = true }) {
-                 const style = bigger ? stylesBigger : styles
+export default function Flag({ bigger }) {
+  const style = bigger ? stylesBigger : styles
 
-                 return (
-                   <View style={style.container}>
-                     <View style={style.flagPole} />
-                     <View style={style.flag} />
-                     <View style={style.base1} />
-                     <View style={style.base2} />
-                   </View>
-                 )
-               }
+  return (
+    <View style={style.container}>
+      <View style={style.flagPole} />
+      <View style={style.flag} />
+      <View style={style.base1} />
+      <View style={style.base2} />
+    </View>
+  )
+}
 const styles = StyleSheet.create({
   container: {
     marginTop: 8,
@@ -58,7 +58,6 @@ const stylesBigger = StyleSheet.create({
     ...styles.flagPole,
     height: 24,
     width: 3,
-    marginLeft: 15,
   },
   flag: {
     ...styles.flag,
@@ -69,7 +68,6 @@ const stylesBigger = StyleSheet.create({
   base1: {
     ...styles.base1,
     height: 3,
-    width: 7,
     marginLeft: 12,
     marginTop: 21,
   },
