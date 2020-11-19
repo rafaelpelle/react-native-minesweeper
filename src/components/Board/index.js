@@ -20,7 +20,7 @@ export default function Board({ board, ...fieldProps }) {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    // flexGrow: 0,
+    // flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: params.borderSize + 1,

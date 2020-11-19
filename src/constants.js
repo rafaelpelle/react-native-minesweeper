@@ -4,7 +4,7 @@ export const params = {
   blockSize: 40,
   borderSize: 5,
   fontSize: 20,
-  headerRatio: 0.15,
+  headerRatio: 0.13,
   difficultLevel: 0.1,
   getColumnsAmount() {
     const { width } = Dimensions.get('window')
