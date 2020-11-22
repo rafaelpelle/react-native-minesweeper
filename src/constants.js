@@ -4,7 +4,7 @@ export const params = {
   blockSize: 40,
   borderSize: 5,
   fontSize: 20,
-  headerRatio: 0.13,
+  headerSize: 90,
   difficultLevel: 0.1,
   getColumnsAmount() {
     const { width } = Dimensions.get('window')
@@ -12,7 +12,7 @@ export const params = {
   },
   getRowsAmount() {
     const { height } = Dimensions.get('window')
-    const boardHeight = height * (1 - this.headerRatio)
+    const boardHeight = height - this.headerSize
     return Math.floor(boardHeight / this.blockSize)
   },
 }

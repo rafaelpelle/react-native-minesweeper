@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexGrow: 1,
     padding: 5,
-    maxHeight: 90,
+    height: params.headerSize,
     backgroundColor: colors.grey,
     borderLeftColor: colors.darkerGrey,
     borderTopColor: colors.darkerGrey,
